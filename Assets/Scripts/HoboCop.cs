@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* This is a test comment */
-
 public class HoboCop : MonoBehaviour {
 
     //variables
