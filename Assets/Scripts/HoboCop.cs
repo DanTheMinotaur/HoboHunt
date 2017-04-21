@@ -14,7 +14,7 @@ public class HoboCop : MonoBehaviour
     public KeyCode shoot;
 
     public GUIText scoreText;
-    private int score;
+    public static int score;
 
     //public int highScore = 0;
     //string highScoreKey = "Highscore";

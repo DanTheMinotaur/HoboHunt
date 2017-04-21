@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour {
     public Transform playerTarget;
-    public int hitPoints = 1;
-    public float movementSpeed = 1f;
+    public int hitPoints;
+    public float movementSpeed;
     protected HoboCop hoboCop;
     public int scoreValue;
 
@@ -49,5 +49,46 @@ public abstract class EnemyBase : MonoBehaviour {
         if (other.tag == "Bullet") {
             hitPoints--;
         }
+    }
+    /*
+      Checks current player score and multiplies the attributes of the enemy based on it.
+      scoreThreshold is the number of points jump by, doubles number
+      isSpeed checks if the method is changing the speed or the hitpoints. True changes speed, False changes hitpoints
+    */
+    protected void checkScore(int scoreThreshold, bool isSpeed) {
+
+        if(HoboCop.score <= scoreThreshold) {
+            if(isSpeed) {
+                increaseSpeed(1);
+            } else {
+                increaseHitpoints(1);
+            }
+        } else if(HoboCop.score >= scoreThreshold) {
+            if (isSpeed) {
+                increaseSpeed(1.5f);
+            } else {
+                increaseHitpoints(2);
+            }
+        } else if(HoboCop.score >= scoreThreshold * 2) {
+            if (isSpeed) {
+                increaseSpeed(2);
+            } else {
+                increaseHitpoints(3);
+            }
+        } else if(HoboCop.score >= scoreThreshold * 4) {
+            if (isSpeed) {
+                increaseSpeed(2.5f);
+            } else {
+                increaseHitpoints(4);
+            }
+        }
+    }
+
+    private void increaseSpeed(float speedMultiplier) {
+        this.movementSpeed *= speedMultiplier;
+    }
+
+    private void increaseHitpoints(int hitpointMultiplier) {
+        this.hitPoints *= hitpointMultiplier;
     }
 }
