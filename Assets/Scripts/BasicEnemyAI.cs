@@ -5,12 +5,10 @@ using UnityEngine;
 public class BasicEnemyAI : EnemyBase
 {
 
-    public float jumpThreshold;
-
     void Start()
     {
         base.Start();
-
+        checkScore(5, true);
     }
 
     void Update()
