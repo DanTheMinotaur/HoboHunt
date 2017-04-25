@@ -18,6 +18,8 @@ public abstract class EnemyBase : MonoBehaviour {
         if (hoboCopObject) {
             hoboCop = hoboCopObject.GetComponent<HoboCop>();
         }
+		float speedFactor = 1f + HoboCop.score/50;
+		increaseSpeed (speedFactor);
     }
 
     // Update is called once per frame

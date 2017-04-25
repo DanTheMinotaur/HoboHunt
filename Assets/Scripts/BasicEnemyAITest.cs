@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicEnemyAITest : EnemyBase {
-
-    new void Start() {
+	new void Start() {
         base.Start();
     }
 
